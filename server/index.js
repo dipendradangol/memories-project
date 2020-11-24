@@ -7,13 +7,14 @@ import postRoutes from './routes/posts.js';
 
 const app = express();
 
-// express middleware to connect the application
-app.use('/posts', postRoutes); //every routes inside the postRoutes starts with posts
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(cors());
+
+// express middleware to connect the application
+app.use('/posts', postRoutes); //every routes inside the postRoutes starts with posts
 
 const CONNECTION_URL = "mongodb+srv://dangoldipendra:dangoldipendra11@cluster0.jfojg.mongodb.net/<dbname>?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
