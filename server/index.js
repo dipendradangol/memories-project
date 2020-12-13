@@ -17,7 +17,10 @@ app.use(cors());
 // express middleware to connect the application
 app.use('/posts', postRoutes); //every routes inside the postRoutes starts with posts
 
-const CONNECTION_URL = "mongodb+srv://dangoldipendra:dangoldipendra11@cluster0.jfojg.mongodb.net/<dbname>?retryWrites=true&w=majority";
+app.get('/', (req, res) => {
+    res.send('Hello to Memories API');
+});
+
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
